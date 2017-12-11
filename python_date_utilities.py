@@ -38,3 +38,20 @@ def last_day_of_month(when):
     Returns the last moment of the month of the datetime
     '''
     return datetime.datetime(when.year, when.month, when.day, 23, 59, 59) + relativedelta.relativedelta(day=31)
+
+
+def diff_month(d1, d2):
+    '''
+    Takes two datetime objects
+
+    Returns the number of months between them.  If they are the same month, 1 is
+    returned.
+    '''
+    return (d1.year - d2.year)*12 + d1.month - d2.month
+
+# assert diff_month(datetime.datetime(2010,10,1), datetime.datetime(2010,9,1)) == 1
+# assert diff_month(datetime.datetime(2010,10,1), datetime.datetime(2009,10,1)) == 12
+# assert diff_month(datetime.datetime(2010,10,1), datetime.datetime(2009,11,1)) == 11
+# assert diff_month(datetime.datetime(2010,10,1), datetime.datetime(2009,8,1)) == 14
+# assert diff_month(datetime.datetime(2016,05,15), datetime.datetime(2015,10,15)) == 7 
+# assert diff_month(datetime.datetime(2016,05,01), datetime.datetime(2012,12,01)) == 41
